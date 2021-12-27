@@ -1,8 +1,9 @@
 import React from 'react'
 
 export function Indicators() {
-    return 
+    return (
         <div>
             
-        </div>;
+        </div>
+    )
 }
