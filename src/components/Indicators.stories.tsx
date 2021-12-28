@@ -1,3 +1,5 @@
+/** @jsxImportSource @emotion/react */
+import { jsx } from 'theme-ui'
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
@@ -14,7 +16,7 @@ export default {
 };
 
 export const DefaultIndicators = () => (
-  <div style={{backgroundColor: "lightblue", width: "100vw", height: "100vh"}}>  
+  <div css={{backgroundColor: "lightblue", width: "100vw", height: "100vh"}}>  
     <Indicators total={6} currentIdx={3}/>
   </div>
 );

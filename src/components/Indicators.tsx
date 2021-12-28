@@ -1,6 +1,7 @@
+/** @jsxImportSource @emotion/react */
+import { jsx } from 'theme-ui'
 import React from 'react'
 
-import { jsx } from '@emotion/react'
 import { Flex } from 'theme-ui'
 
 const Dot = (props: {
@@ -11,14 +12,14 @@ const Dot = (props: {
 
     return (
         <Flex 
-            style={{
+            css={{
                 alignItems: 'center',
                 justifyContent: 'center',
                 width: 62, 
                 height: 62,
                 color: 'white'}}>
             <Flex
-                style={{
+                css={{
                     alignItems: 'center',
                     justifyContent: 'center',
                     width: props.active ? '100%' : 8,
@@ -28,7 +29,7 @@ const Dot = (props: {
                     transition: '1s'
                 }}>
             <span
-                style={{
+                css={{
                     fontSize: props.active ? 16 : 0,
                     fontWeight: 'bold',
                     transition: 'fontsize 1s'
@@ -46,8 +47,8 @@ export function Indicators(props: {
     onSelect ?: (idx: number) => void
 }) {
     return (
-        <div style={{position: 'relative'}}>
-            <div style={{ width: '2px', height: '100%', backgroundColor: WHITE}}></div>
+        <div css={{position: 'relative'}}>
+            <div css={{ width: '2px', height: '100%', backgroundColor: WHITE}}></div>
             {Array.from({length: props.total}).map((_, idx) => (
                 <Dot label={`${idx}`} key={idx} active={idx == props.currentIdx} />
             ))}
