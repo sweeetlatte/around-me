@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta} from '@storybook/react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Indicators } from './Indicators';
 
@@ -13,4 +13,8 @@ export default {
 //   },
 };
 
-export const DefaultIndicators = () => <Indicators />;
+export const DefaultIndicators = () => (
+  <div style={{backgroundColor: "lightblue", width: "100vw", height: "100vh"}}>  
+    <Indicators total={6} currentIdx={3}/>
+  </div>
+);
