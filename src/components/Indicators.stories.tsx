@@ -5,18 +5,17 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Indicators } from './Indicators';
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: 'Indicators',
   component: Indicators,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-//   argTypes: {
-//     backgroundColor: { control: 'color' },
-//   },
 };
 
-export const DefaultIndicators = () => (
-  <div css={{backgroundColor: "lightblue", width: "100vw", height: "100vh"}}>  
-    <Indicators total={6} currentIdx={3}/>
-  </div>
-);
+export const DefaultIndicators = () => {
+  const [currentIdx, setCurrentIdx] = React.useState(0);
+
+  return (
+    <div style={{ backgroundColor: '#333', width: '100vw', height: '100vh' }}>  
+      <Indicators total={6} currentIdx={currentIdx} onSelect={setCurrentIdx} />
+    </div>
+  );
+};
