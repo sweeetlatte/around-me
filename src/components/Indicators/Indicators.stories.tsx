@@ -10,7 +10,7 @@ export default {
   component: Indicators,
 };
 
-export const DefaultIndicators = () => {
+export const Default = () => {
   const [currentIdx, setCurrentIdx] = React.useState(0);
 
   return (
