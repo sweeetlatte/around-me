@@ -44,8 +44,9 @@ export function CardList(props: {
                         >
                             {item.title}
                         </Text>
+
                         <Flex>
-                            {/* dấu _: skip param 1 */}
+                            {/* "_": skip the unwanted param */}
                             {Array.from({ length: 5 }).map((_, idx) => (
                                 <Box
                                     sx={{
