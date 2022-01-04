@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Flex, Text, Image, AspectImage } from 'theme-ui';
+import { animated, useTransition } from 'react-spring';
+import { Box, Flex, Text, Image, AspectImage, AspectRatio } from 'theme-ui';
 
 const Controls = (props: { onNext?: () => void; onPrev?: () => void }) => (
     <Flex
@@ -60,6 +61,44 @@ const Pagination = (props: { current: number; total: number }) => (
         </Text>
     </Flex>
 );
+
+const Card = ({ image, w }: { image: string; w: string }) => {
+    const transition = useTransition(image, {
+        keys: (item) => item,
+        from: { transform: 'rotateY(180deg)' },
+        enter: { transform: 'rotateY(0deg)' },
+        leave: { transform: 'rotateY(-180deg)' },
+        config: { tension: 220, friction: 120, duration: 2000 },
+    });
+    // phiên bản mới ko dùng map nữa là prop bình thường thôi chứ ko phải của map
+    // keys nằm trong props nhưng vẫn lấy ra được vì useTransition map sẵn
+    return (
+        <Box sx={{ perspective: 1000 }}>  
+            <AspectRatio
+                ratio={401 / 569}
+                sx={{
+                    transition: 'transform 0.6s',
+                    transformStyle: 'preserve-3d',
+                }}
+            >
+                {transition((props, item, k) => (
+                    <animated.div
+                        style={{
+                            ...props,
+                            position: 'absolute',
+                            width: w,
+                            backfaceVisibility: 'hidden',
+                            transition: 'width 0.6s',
+                        }}
+                        key={k.key}
+                    >
+                        <AspectImage src={item} ratio={401 / 569} />
+                    </animated.div>
+                ))}
+            </AspectRatio>
+        </Box>
+    );
+};
 
 export function CardList(props: {
     list: {
@@ -126,7 +165,10 @@ export function CardList(props: {
                                 ))}
                             </Flex>
 
-                            <AspectImage src={item.image} ratio={401 / 569} />
+                            <Card
+                                image={item.image}
+                                w={`calc(${width} / ${isBig ? 2.5 : 2.8})`}
+                            />
                         </Box>
                     );
                 })}

@@ -16,35 +16,65 @@ export const Default = () => {
     //     }, 1000)
     // }, [currentIdx])
 
+    const data = [
+        [
+            {
+                title: '1',
+                rate: 4,
+                image: 'https://via.placeholder.com/468x600?text=1',
+            },
+            {
+                title: '2',
+                rate: 4,
+                image: 'https://via.placeholder.com/468x600?text=2',
+            },
+            {
+                title: '3',
+                rate: 4,
+                image: 'https://via.placeholder.com/468x600?text=3',
+            },
+            {
+                title: '4',
+                rate: 4,
+                image: 'https://via.placeholder.com/468x600?text=4',
+            },
+        ],
+        [
+            {
+                title: '21',
+                rate: 4,
+                image: 'https://via.placeholder.com/468x600?text=21',
+            },
+            {
+                title: '22',
+                rate: 4,
+                image: 'https://via.placeholder.com/468x600?text=22',
+            },
+            {
+                title: '23',
+                rate: 4,
+                image: 'https://via.placeholder.com/468x600?text=23',
+            },
+            {
+                title: '24',
+                rate: 4,
+                image: 'https://via.placeholder.com/468x600?text=24',
+            },
+        ],
+    ];
+
     return (
-        <div
-            style={{ backgroundColor: '#333', width: '100vw', height: '100vh' }}
-        >
-            <CardList
-                width="100vw"
-                list={[
-                    {
-                        title: '1',
-                        rate: 4,
-                        image: 'https://via.placeholder.com/468x600?text=1',
-                    },
-                    {
-                        title: '2',
-                        rate: 4,
-                        image: 'https://via.placeholder.com/468x600?text=2',
-                    },
-                    {
-                        title: '3',
-                        rate: 4,
-                        image: 'https://via.placeholder.com/468x600?text=3',
-                    },
-                    {
-                        title: '4',
-                        rate: 4,
-                        image: 'https://via.placeholder.com/468x600?text=4',
-                    },
-                ]}
-            />
+        <div>
+            <button onClick={() => setCurrentIdx(1 - currentIdx)}>Flip</button>
+            <div
+                style={{
+                    backgroundColor: '#333',
+                    width: '100vw',
+                    height: '100vh',
+                }}
+            >
+                <CardList width="100vw" list={data[currentIdx]} />
+            </div>
         </div>
     );
 };
