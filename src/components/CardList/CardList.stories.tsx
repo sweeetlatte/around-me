@@ -29,19 +29,19 @@ export const Default = () => {
                         image: 'https://via.placeholder.com/468x600?text=1',
                     },
                     {
-                        title: '1',
+                        title: '2',
                         rate: 4,
-                        image: 'https://via.placeholder.com/468x600?text=1',
+                        image: 'https://via.placeholder.com/468x600?text=2',
                     },
                     {
-                        title: '1',
+                        title: '3',
                         rate: 4,
-                        image: 'https://via.placeholder.com/468x600?text=1',
+                        image: 'https://via.placeholder.com/468x600?text=3',
                     },
                     {
-                        title: '1',
+                        title: '4',
                         rate: 4,
-                        image: 'https://via.placeholder.com/468x600?text=1',
+                        image: 'https://via.placeholder.com/468x600?text=4',
                     },
                 ]}
             />
