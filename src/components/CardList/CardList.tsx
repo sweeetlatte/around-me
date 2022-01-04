@@ -68,35 +68,35 @@ const Card = ({ image, w }: { image: string; w: string }) => {
         from: { transform: 'rotateY(180deg)' },
         enter: { transform: 'rotateY(0deg)' },
         leave: { transform: 'rotateY(-180deg)' },
-        config: { tension: 220, friction: 120, duration: 2000 },
+        config: { tension: 220, friction: 120, duration: 800 },
     });
-    // phiên bản mới ko dùng map nữa là prop bình thường thôi chứ ko phải của map
-    // keys nằm trong props nhưng vẫn lấy ra được vì useTransition map sẵn
+
     return (
-        <Box sx={{ perspective: 1000 }}>  
-            <AspectRatio
-                ratio={401 / 569}
-                sx={{
-                    transition: 'transform 0.6s',
-                    transformStyle: 'preserve-3d',
-                }}
-            >
-                {transition((props, item, k) => (
-                    <animated.div
-                        style={{
-                            ...props,
-                            position: 'absolute',
-                            width: w,
-                            backfaceVisibility: 'hidden',
-                            transition: 'width 0.6s',
-                        }}
-                        key={k.key}
-                    >
-                        <AspectImage src={item} ratio={401 / 569} />
-                    </animated.div>
-                ))}
-            </AspectRatio>
-        </Box>
+        <AspectRatio
+            ratio={401 / 569}
+            sx={{
+                transition: 'transform 600ms',
+                transformStyle: 'preserve-3d',
+                perspective: 1000,
+            }}
+        >
+            {/* phiên bản mới ko dùng map nữa, 'props item k' là prop bình thường thôi chứ ko phải của map
+                keys nằm trong props nhưng vẫn lấy ra được vì useTransition map sẵn */}
+            {transition((props, item, k) => (
+                <animated.div
+                    style={{
+                        ...props,
+                        position: 'absolute',
+                        width: w,
+                        backfaceVisibility: 'hidden',
+                        transition: 'width 0.6s',
+                    }}
+                    key={k.key}
+                >
+                    <AspectImage src={item} ratio={401 / 569} />
+                </animated.div>
+            ))}
+        </AspectRatio>
     );
 };
 
