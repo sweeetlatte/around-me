@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { Box, jsx, Text, AspectRatio } from 'theme-ui';
+import { Box, Text } from 'theme-ui';
 import React from 'react';
 
 import { Flex } from 'theme-ui';
@@ -98,7 +98,7 @@ export function Indicators(props: {
                                 key={idx}
                                 size={width}
                                 active={
-                                    idx == props.currentIdx ||
+                                    idx === props.currentIdx ||
                                     idx === hoveringIdx
                                 }
                             />
@@ -133,7 +133,7 @@ export function Indicators(props: {
                                     cursor: 'pointer',
                                     transition: 'transform 400ms',
                                     transform: `scale(${
-                                        idx == props.currentIdx ||
+                                        idx === props.currentIdx ||
                                         idx === hoveringIdx
                                             ? '1,1'
                                             : '0,0'

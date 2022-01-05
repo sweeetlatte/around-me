@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { animated, useTransition } from 'react-spring';
-import { Box, Flex, Text, Image, AspectImage, AspectRatio } from 'theme-ui';
+import { Box, Flex, Text, AspectImage, AspectRatio } from 'theme-ui';
 
 const Controls = (props: { onNext?: () => void; onPrev?: () => void }) => (
     <Flex

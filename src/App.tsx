@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { Flex } from 'theme-ui';
+import { Box, Flex } from 'theme-ui';
 import { Indicators } from './components/Indicators/Indicators';
 import { Headings } from './components/Headings/Headings';
 import { CardList } from './components/CardList/CardList';
+import { Slideshow } from './components/Slideshow/Slideshow';
 
 const description =
     'When sugar was first introduced to England in the twelfth century, it was grouped with other tropical spices like ginger.';
@@ -13,6 +13,7 @@ const data = [
         title: 'Canada',
         buttonColor: '#B86446',
         description: `1 ${description}`,
+        image: 'https://via.placeholder.com/468x600?text=21',
         item: [
             {
                 title: '11',
@@ -40,6 +41,7 @@ const data = [
         title: 'Sweden',
         buttonColor: '#B86446',
         description: `2 ${description}`,
+        image: 'https://via.placeholder.com/468x600?text=21',
         item: [
             {
                 title: '21',
@@ -67,6 +69,7 @@ const data = [
         title: 'Norway',
         buttonColor: '#B86446',
         description: `3 ${description}`,
+        image: 'https://via.placeholder.com/468x600?text=21',
         item: [
             {
                 title: '31',
@@ -94,6 +97,7 @@ const data = [
         title: 'Switzerland',
         buttonColor: '#B86446',
         description: `4 ${description}`,
+        image: 'https://via.placeholder.com/468x600?text=21',
         item: [
             {
                 title: '41',
@@ -121,6 +125,7 @@ const data = [
         title: 'Finland',
         buttonColor: '#B86446',
         description: `5 ${description}`,
+        image: 'https://via.placeholder.com/468x600?text=21',
         item: [
             {
                 title: '51',
@@ -148,6 +153,7 @@ const data = [
         title: 'Germany',
         buttonColor: '#B86446',
         description: `6 ${description}`,
+        image: 'https://via.placeholder.com/468x600?text=21',
         item: [
             {
                 title: '61',
@@ -185,7 +191,20 @@ function App() {
                 minHeight: '100vh',
             }}
         >
-            <Flex sx={{ justifyContent: 'space-between', ml:40, mt: 40 }}>
+            <Box
+                sx={{
+                    width: '100vw',
+                    height: '100vh',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    backgroundColor: 'lightblue',
+                }}
+            >
+                <Slideshow slides={data} currentIdx={currentIdx} />
+            </Box>
+            <Flex />
+            <Flex sx={{ justifyContent: 'space-between', ml: 40, mt: 40 }}>
                 <Indicators
                     total={data.length}
                     currentIdx={currentIdx}
