@@ -26,7 +26,8 @@ export const Slideshow = (props: {
     const previousIdx = usePrevious(props.currentIdx);
     const to = props.slides[props.currentIdx].image;
 
-    // "a && b" <=> if (a) b; 
+    // "a && b" <=> if (a) b;
+    // Vế trước: previousIdx !== null đúng thì mới thực hiện vế sau: gán props.slides[previousIdx].image cho from
     // Nếu previousIdx !== null => gán props.slides[previousIdx].image cho from
     // Nếu previousIdx == null => from = null
     const from =
