@@ -198,7 +198,7 @@ function App() {
                     position: 'absolute',
                     top: 0,
                     left: 0,
-                    backgroundColor: 'lightblue',
+                    backgroundColor: '#a7a7a7',
                 }}
             >
                 <Slideshow slides={data} currentIdx={currentIdx} />
