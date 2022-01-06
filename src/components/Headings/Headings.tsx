@@ -80,7 +80,7 @@ export function Headings(props: {
             <Text
                 sx={{
                     position: 'absolute',
-                    top: `calc(${height} / 2 + 60px)`,
+                    top: `calc(${height} / 2 + 40px)`,
                     color: 'white',
                     fontSize: 16,
                     lineHeight: 2,
@@ -94,10 +94,12 @@ export function Headings(props: {
                         <Text>{item.description}</Text>
                         <Button
                             sx={{
-                                color: 'white',
+                                color: 'black',
+                                fontWeight: 'bold',
                                 backgroundColor: item.buttonColor,
                                 padding: '15px 30px',
                                 display: 'block',
+                                mt: 10
                             }}
                         >
                             Explore
