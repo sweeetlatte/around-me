@@ -6,13 +6,11 @@ import { Headings } from './components/Headings/Headings';
 import { CardList } from './components/CardList/CardList';
 import { Slideshow } from './components/Slideshow/Slideshow';
 
-const description =
-    'When sugar was first introduced to England in the twelfth century, it was grouped with other tropical spices like ginger.';
 const data = [
     {
         title: 'Canada',
         buttonColor: '#c8d4db',
-        description: `1 ${description}`,
+        description: 'Canada is a country in North America that extends from the Atlantic Ocean in the east, to the Pacific Ocean in the west.',
         image: '/images/canada-bg.jpg',
         item: [
             {
@@ -40,7 +38,7 @@ const data = [
     {
         title: 'Sweden',
         buttonColor: '#dcb3c0',
-        description: `2 ${description}`,
+        description: 'Sweden is a country located in Northern Europe bordering the Baltic Sea, Gulf of Bothnia, Kattegat, and Skagerrak.',
         image: '/images/sweden-bg.jpg',
         item: [
             {
@@ -68,7 +66,7 @@ const data = [
     {
         title: 'Norway',
         buttonColor: '#88b2d8',
-        description: `3 ${description}`,
+        description: 'Norway is a country in Northern Europe occupying the western portion of the Scandinavian Peninsula.',
         image: '/images/norway-bg.jpg',
         item: [
             {
@@ -96,7 +94,7 @@ const data = [
     {
         title: 'Switzerland',
         buttonColor: '#dcceb6',
-        description: `4 ${description}`,
+        description: 'Switzerland is a landlocked country in Central Europe. Neighboring countries include Austria, France, Italy.',
         image: '/images/swit-bg.jpg',
         item: [
             {
@@ -124,7 +122,7 @@ const data = [
     {
         title: 'Finland',
         buttonColor: '#8c9cac',
-        description: `5 ${description}`,
+        description: 'Finland is a country located in Northern Europe bordering the Baltic Sea, Gulf of Bothnia, and the Gulf of Finland.',
         image: '/images/fin-bg.jpg',
         item: [
             {
@@ -152,7 +150,7 @@ const data = [
     {
         title: 'Germany',
         buttonColor: '#c5d3db',
-        description: `6 ${description}`,
+        description: 'Germany is a country located in the heart of Western Europe. It is bordered by Denmark, Poland, Czechia, Austria, Switzerland.',
         image: '/images/ger-bg.jpg',
         item: [
             {
