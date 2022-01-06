@@ -9,12 +9,6 @@ export default {
 
 export const Default = () => {
     const [currentIdx, setCurrentIdx] = React.useState(0);
-    // const description =
-    // React.useEffect(() => {
-    //     setTimeout(() => {
-    //         setCurrentIdx((currentIdx + 1) % data.length);
-    //     }, 1000)
-    // }, [currentIdx])
 
     const data = [
         [

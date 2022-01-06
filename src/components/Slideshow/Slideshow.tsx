@@ -33,7 +33,8 @@ export const Slideshow = (props: {
     const from =
         (previousIdx !== null && props.slides[previousIdx].image) || null;
 
-    const transition = GLTransitions[10];
+    // 9, 7, 5
+    const transition = GLTransitions[5];
     const [progress, setProgress] = useState(0);
     const INTERVAL = 1000 / 60;
 
@@ -49,8 +50,11 @@ export const Slideshow = (props: {
         }
     }, [progress]);
 
+    const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+    const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+
     return (
-        <Surface width={300} height={400}>
+        <Surface width={vw} height={vh}>
             {progress < 1 && from ? (
                 <GLTransition
                     from={<GLImage source={from} resizeMode="cover"/>}

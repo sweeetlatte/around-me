@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { animated, useTransition } from 'react-spring';
-import { Box, Flex, Text, AspectImage, AspectRatio } from 'theme-ui';
+import { Box, Flex, Text, AspectImage, ThemeUIStyleObject } from 'theme-ui';
 
 const Controls = (props: { onNext?: () => void; onPrev?: () => void }) => (
     <Flex
@@ -62,6 +62,39 @@ const Pagination = (props: { current: number; total: number }) => (
     </Flex>
 );
 
+export const AspectRatio = ({
+    ratio = 4 / 3,
+    children,
+    ...props
+}: React.PropsWithChildren<{ratio: number, sx?: ThemeUIStyleObject}>) => (
+    <Box
+        sx={{
+            position: 'relative',
+            //   overflow: 'hidden',
+        }}
+    >
+        <Box
+            sx={{
+                width: '100%',
+                height: 0,
+                paddingBottom: 100 / ratio + '%',
+            }}
+        />
+        <Box
+            {...props}
+            sx={{
+                position: 'absolute',
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0,
+            }}
+        >
+            {children}
+        </Box>
+    </Box>
+);
+
 const Card = ({ image, w }: { image: string; w: string }) => {
     const transition = useTransition(image, {
         keys: (item) => item,
@@ -72,12 +105,14 @@ const Card = ({ image, w }: { image: string; w: string }) => {
     });
 
     return (
+        <Box sx={{}} >
+
+        
         <AspectRatio
             ratio={401 / 569}
             sx={{
                 transition: 'transform 600ms',
                 transformStyle: 'preserve-3d',
-                perspective: 1000,
             }}
         >
             {/* phiên bản mới ko dùng map nữa, 'props item k' là prop bình thường thôi chứ ko phải của map
@@ -90,13 +125,24 @@ const Card = ({ image, w }: { image: string; w: string }) => {
                         width: w,
                         backfaceVisibility: 'hidden',
                         transition: 'width 0.6s',
+                        perspective: 1000
                     }}
                     key={k.key}
                 >
-                    <AspectImage src={item} ratio={401 / 569} />
+                    <AspectImage
+                        src={item}
+                        ratio={401 / 569}
+                        sx={{
+                            objectFit: 'cover',
+                            width: '100%',
+                            height: '100%',
+                            borderRadius: 9,
+                        }}
+                    />{' '}
                 </animated.div>
             ))}
         </AspectRatio>
+        </Box>
     );
 };
 
@@ -133,6 +179,7 @@ export function CardList(props: {
                             sx={{
                                 mr: '40px',
                                 width: `calc(${width} / ${isBig ? 2.5 : 2.8})`,
+
                                 // ...
                                 flexShrink: 0,
                                 transition: 'width 500ms',

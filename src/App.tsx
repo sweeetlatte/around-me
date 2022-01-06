@@ -13,27 +13,27 @@ const data = [
         title: 'Canada',
         buttonColor: '#B86446',
         description: `1 ${description}`,
-        image: 'https://via.placeholder.com/468x600?text=21',
+        image: '/images/canada-bg.jpg',
         item: [
             {
                 title: '11',
                 rate: 4,
-                image: 'https://via.placeholder.com/468x600?text=11',
+                image: '/images/canada-3.jpg',
             },
             {
                 title: '11',
                 rate: 4,
-                image: 'https://via.placeholder.com/468x600?text=11',
+                image: '/images/canada-2.jpg',
             },
             {
                 title: '12',
                 rate: 4,
-                image: 'https://via.placeholder.com/468x600?text=12',
+                image: '/images/canada-1.jpg',
             },
             {
                 title: '14',
                 rate: 4,
-                image: 'https://via.placeholder.com/468x600?text=14',
+                image: '/images/canada-4.jpg',
             },
         ],
     },
@@ -41,27 +41,27 @@ const data = [
         title: 'Sweden',
         buttonColor: '#B86446',
         description: `2 ${description}`,
-        image: 'https://via.placeholder.com/468x600?text=21',
+        image: '/images/sweden-bg.jpg',
         item: [
             {
                 title: '21',
                 rate: 4,
-                image: 'https://via.placeholder.com/468x600?text=21',
+                image: '/images/sweden-1.jpg',
             },
             {
                 title: '22',
                 rate: 4,
-                image: 'https://via.placeholder.com/468x600?text=22',
+                image: '/images/sweden-2.jpg',
             },
             {
                 title: '23',
                 rate: 4,
-                image: 'https://via.placeholder.com/468x600?text=23',
+                image: '/images/sweden-3.jpg',
             },
             {
                 title: '24',
                 rate: 4,
-                image: 'https://via.placeholder.com/468x600?text=24',
+                image: '/images/sweden-4.jpg',
             },
         ],
     },
@@ -69,7 +69,7 @@ const data = [
         title: 'Norway',
         buttonColor: '#B86446',
         description: `3 ${description}`,
-        image: 'https://via.placeholder.com/468x600?text=21',
+        image: 'https://via.placeholder.com/1920x1080?text=21',
         item: [
             {
                 title: '31',
@@ -97,7 +97,7 @@ const data = [
         title: 'Switzerland',
         buttonColor: '#B86446',
         description: `4 ${description}`,
-        image: 'https://via.placeholder.com/468x600?text=21',
+        image: 'https://via.placeholder.com/1920x1080?text=21',
         item: [
             {
                 title: '41',
@@ -125,7 +125,7 @@ const data = [
         title: 'Finland',
         buttonColor: '#B86446',
         description: `5 ${description}`,
-        image: 'https://via.placeholder.com/468x600?text=21',
+        image: 'https://via.placeholder.com/1920x1080?text=21',
         item: [
             {
                 title: '51',
@@ -153,7 +153,7 @@ const data = [
         title: 'Germany',
         buttonColor: '#B86446',
         description: `6 ${description}`,
-        image: 'https://via.placeholder.com/468x600?text=21',
+        image: 'https://via.placeholder.com/1920x1080?text=21',
         item: [
             {
                 title: '61',
