@@ -2,10 +2,13 @@ import React from 'react';
 import { Box, Button, Text } from 'theme-ui';
 import { useTransition, animated } from 'react-spring';
 
+// Có props: props sẽ nhận vào 1 object gồm active, children,... sau đó mới gán props cho Heading
+// Không có props: Heading sẽ nhận vào 1 object gồm active, children,... nên khi lấy giá trị sẽ lấy trực tiếp mà không cần thông qua props
 const Heading = ({
     active,
     children,
-}: React.PropsWithChildren<{ active?: boolean }>) => {
+    textColor
+}: React.PropsWithChildren<{ active?: boolean, textColor: string }>) => {
     const commonStyles = {
         fontWeight: 'bold',
         fontSize: active ? '150px' : '90px',
@@ -39,7 +42,7 @@ const Heading = ({
                     position: 'absolute',
                     top: 0,
                     left: 0,
-                    color: '#B86446',
+                    color: textColor,
                     opacity: active ? 1 : 0,
                     ...commonStyles,
                 }}
@@ -122,7 +125,7 @@ export function Headings(props: {
                         opacity: Math.abs(currentIdx - idx) < 2 ? 1 : 0,
                     }}
                 >
-                    <Heading active={idx === currentIdx}>{item.title}</Heading>
+                    <Heading textColor={item.buttonColor} active={idx === currentIdx}>{item.title}</Heading>
                 </Box>
             ))}
         </Box>
