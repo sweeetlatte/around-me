@@ -55,10 +55,15 @@ export function Indicators(props: {
     maxDisplayingDots?: number;
     duration?: string;
 }) {
-    // const {} = props: dùng để lấy các thuộc tính trong props 
+    // const {} = props: dùng để lấy các thuộc tính trong props
     // giá trị sau dấu "="" dùng để backup, nếu không có giá trị sau dấu = thì khi lấy giá trị của các thuộc tính không nhận giá trị đầu vào sẽ là null
     // khi có các giá trị này, nếu không có giá trị đầu vào thì giá trị được lấy ra sẽ là giá trị sau dấu "="
-    const { height = '90vh', width = '56px', maxDisplayingDots = 6, duration = '350ms'} = props;
+    const {
+        height = '90vh',
+        width = '56px',
+        maxDisplayingDots = 6,
+        duration = '350ms',
+    } = props;
     const [hoveringIdx, setHoveringIdx] = React.useState<number | null>(null);
 
     return (
