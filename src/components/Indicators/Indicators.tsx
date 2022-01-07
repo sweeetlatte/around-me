@@ -4,7 +4,7 @@ import React from 'react';
 
 import { Flex } from 'theme-ui';
 
-const Dot = (props: { active?: boolean; size: string }) => {
+const Dot = (props: { active?: boolean; size: string; duration: string }) => {
     return (
         <Flex
             sx={{
@@ -20,7 +20,7 @@ const Dot = (props: { active?: boolean; size: string }) => {
                     height: props.active ? '100%' : 8,
                     backgroundColor: 'white',
                     borderRadius: 100,
-                    transition: '400ms',
+                    transition: `${props.duration} ease`,
                     boxShadow: '0px 0px 4px 2px rgba(0, 0, 0, 0.1)',
                 }}
             ></Flex>
@@ -35,7 +35,7 @@ const Pagination = (props: { current: number; total: number }) => (
             color: 'white',
             transform: 'rotate(-90deg)',
             height: 80,
-            fontSize: 14
+            fontSize: 14,
         }}
     >
         <Text>{props.current.toString().padStart(2, '0')}</Text>
@@ -53,8 +53,12 @@ export function Indicators(props: {
     width?: string;
     height?: string;
     maxDisplayingDots?: number;
+    duration?: string;
 }) {
-    const { height = '90vh', width = '56px', maxDisplayingDots = 6 } = props;
+    // const {} = props: dùng để lấy các thuộc tính trong props 
+    // giá trị sau dấu "="" dùng để backup, nếu không có giá trị sau dấu = thì khi lấy giá trị của các thuộc tính không nhận giá trị đầu vào sẽ là null
+    // khi có các giá trị này, nếu không có giá trị đầu vào thì giá trị được lấy ra sẽ là giá trị sau dấu "="
+    const { height = '90vh', width = '56px', maxDisplayingDots = 6, duration = '350ms'} = props;
     const [hoveringIdx, setHoveringIdx] = React.useState<number | null>(null);
 
     return (
@@ -91,7 +95,7 @@ export function Indicators(props: {
                                 top: `calc(${height} / 2 + ${height} / ${
                                     maxDisplayingDots + 1
                                 } * ${idx - props.currentIdx})`,
-                                transition: 'top 400ms',
+                                transition: `top ${duration} ease`,
                             }}
                         >
                             <Dot
@@ -101,6 +105,7 @@ export function Indicators(props: {
                                     idx === props.currentIdx ||
                                     idx === hoveringIdx
                                 }
+                                duration={duration}
                             />
                         </Box>
                     ))}
@@ -122,7 +127,7 @@ export function Indicators(props: {
                                 fontWeight: 'bold',
                                 color: 'white',
                                 cursor: 'pointer',
-                                transition: 'top 400ms',
+                                transition: `top ${duration} ease`,
                             }}
                             onMouseEnter={() => setHoveringIdx(idx)}
                             onMouseLeave={() => setHoveringIdx(null)}
@@ -131,7 +136,7 @@ export function Indicators(props: {
                             <Box
                                 sx={{
                                     cursor: 'pointer',
-                                    transition: 'transform 400ms',
+                                    transition: `transform ${duration} ease`,
                                     transform: `scale(${
                                         idx === props.currentIdx ||
                                         idx === hoveringIdx
