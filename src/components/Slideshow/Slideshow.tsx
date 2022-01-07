@@ -22,7 +22,7 @@ export const Slideshow = (props: {
     duration?: number;
     currentIdx: number;
 }) => {
-    const { duration = 1500 } = props;
+    const { duration = 300 } = props;
     const previousIdx = usePrevious(props.currentIdx);
     const to = props.slides[props.currentIdx].image;
 

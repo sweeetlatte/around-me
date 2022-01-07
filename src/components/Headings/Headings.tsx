@@ -7,8 +7,8 @@ import { useTransition, animated } from 'react-spring';
 const Heading = ({
     active,
     children,
-    textColor
-}: React.PropsWithChildren<{ active?: boolean, textColor: string }>) => {
+    textColor,
+}: React.PropsWithChildren<{ active?: boolean; textColor: string }>) => {
     const commonStyles = {
         fontWeight: 'bold',
         fontSize: active ? '150px' : '90px',
@@ -70,7 +70,14 @@ export function Headings(props: {
         from: { opacity: 0 },
         enter: { opacity: 1 },
         leave: { opacity: 0 },
-        config: { tension: 220, friction: 120, duration: 2000 },
+        config: { tension: 220, friction: 120, duration: 500 },
+    });
+    const fadingButtonPropsTransition = useTransition(data[currentIdx], {
+        keys: (item) => item.title,
+        from: { opacity: 0 },
+        enter: { opacity: 1 },
+        leave: { opacity: 0 },
+        config: { tension: 220, friction: 120, duration: 500, delay: 100 },
     });
     return (
         <Box
@@ -95,6 +102,14 @@ export function Headings(props: {
                         style={{ ...props, position: 'absolute', width }}
                     >
                         <Text>{item.description}</Text>
+                    </animated.div>
+                ))}
+
+                {fadingTextPropsTransition((props, item, k) => (
+                    <animated.div style={{
+                        position: 'absolute',
+                        top: 70
+                    }} >
                         <Button
                             sx={{
                                 color: 'black',
@@ -102,11 +117,19 @@ export function Headings(props: {
                                 backgroundColor: item.buttonColor,
                                 padding: '15px 30px',
                                 display: 'block',
-                                mt: 10
+                                mt: 10,
+                                // opacity: `calc(${props.opacity.get()} + 1)` }}
                             }}
                         >
                             Explore
-                            <Text sx={{ ml: 80, opacity: 0.5 }}>→</Text>
+                            <Text
+                                sx={{
+                                    ml: 80,
+                                    opacity: `calc(${props.opacity.get()} + 1)`,
+                                }}
+                            >
+                                →
+                            </Text>
                         </Button>
                     </animated.div>
                 ))}
@@ -125,7 +148,12 @@ export function Headings(props: {
                         opacity: Math.abs(currentIdx - idx) < 2 ? 1 : 0,
                     }}
                 >
-                    <Heading textColor={item.buttonColor} active={idx === currentIdx}>{item.title}</Heading>
+                    <Heading
+                        textColor={item.buttonColor}
+                        active={idx === currentIdx}
+                    >
+                        {item.title}
+                    </Heading>
                 </Box>
             ))}
         </Box>
