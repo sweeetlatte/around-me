@@ -60,7 +60,7 @@ export function Indicators(props: {
     // khi có các giá trị này, nếu không có giá trị đầu vào thì giá trị được lấy ra sẽ là giá trị sau dấu "="
     const {
         height = '90vh',
-        width = '56px',
+        width = '3.22vw',
         maxDisplayingDots = 6,
         duration = '350ms',
     } = props;

@@ -10,7 +10,8 @@ const data = [
     {
         title: 'Canada',
         buttonColor: '#c8d4db',
-        description: 'Canada is a country in North America that extends from the Atlantic Ocean in the east, to the Pacific Ocean in the west.',
+        description:
+            'Canada is a country in North America that extends from the Atlantic Ocean in the east, to the Pacific Ocean in the west.',
         image: '/images/canada-bg.jpg',
         item: [
             {
@@ -38,7 +39,8 @@ const data = [
     {
         title: 'Sweden',
         buttonColor: '#dcb3c0',
-        description: 'Sweden is a country located in Northern Europe bordering the Baltic Sea, Gulf of Bothnia, Kattegat, and Skagerrak.',
+        description:
+            'Sweden is a country located in Northern Europe bordering the Baltic Sea, Gulf of Bothnia, Kattegat, and Skagerrak.',
         image: '/images/sweden-bg.jpg',
         item: [
             {
@@ -66,7 +68,8 @@ const data = [
     {
         title: 'Norway',
         buttonColor: '#88b2d8',
-        description: 'Norway is a country in Northern Europe occupying the western portion of the Scandinavian Peninsula.',
+        description:
+            'Norway is a country in Northern Europe occupying the western portion of the Scandinavian Peninsula.',
         image: '/images/norway-bg.jpg',
         item: [
             {
@@ -94,7 +97,8 @@ const data = [
     {
         title: 'Switzerland',
         buttonColor: '#dcceb6',
-        description: 'Switzerland is a landlocked country in Central Europe. Neighboring countries include Austria, France, Italy.',
+        description:
+            'Switzerland is a landlocked country in Central Europe. Neighboring countries include Austria, France, Italy.',
         image: '/images/swit-bg.jpg',
         item: [
             {
@@ -122,7 +126,8 @@ const data = [
     {
         title: 'Finland',
         buttonColor: '#8c9cac',
-        description: 'Finland is a country located in Northern Europe bordering the Baltic Sea, Gulf of Bothnia, and the Gulf of Finland.',
+        description:
+            'Finland is a country located in Northern Europe bordering the Baltic Sea, Gulf of Bothnia, and the Gulf of Finland.',
         image: '/images/fin-bg.jpg',
         item: [
             {
@@ -150,7 +155,8 @@ const data = [
     {
         title: 'Germany',
         buttonColor: '#c5d3db',
-        description: 'Germany is a country located in the heart of Western Europe. It is bordered by Denmark, Poland, Czechia, Austria, Switzerland.',
+        description:
+            'Germany is a country located in the heart of Western Europe. It is bordered by Denmark, Poland, Czechia, Austria, Switzerland.',
         image: '/images/ger-bg.jpg',
         item: [
             {
@@ -202,12 +208,14 @@ function App() {
                 <Slideshow slides={data} currentIdx={currentIdx} />
             </Box>
             <Flex />
-            <Flex sx={{ justifyContent: 'space-between', ml: 40, mt: 40 }}>
-                <Indicators
-                    total={data.length}
-                    currentIdx={currentIdx}
-                    onSelect={setCurrentIdx}
-                />
+            <Flex sx={{ justifyContent: 'space-between', mt: '2vw' }}>
+                <Box sx={{ ml: '2vw' }}>
+                    <Indicators
+                        total={data.length}
+                        currentIdx={currentIdx}
+                        onSelect={setCurrentIdx}
+                    />
+                </Box>
                 <Headings data={data} currentIdx={currentIdx} width="26vw" />
                 <CardList list={data[currentIdx].item} width="54vw" />
             </Flex>

@@ -11,7 +11,7 @@ const Heading = ({
 }: React.PropsWithChildren<{ active?: boolean; textColor: string }>) => {
     const commonStyles = {
         fontWeight: 'bold',
-        fontSize: active ? '150px' : '90px',
+        fontSize: active ? '6.2vw' : '4.2vw',
         letterSpacing: '-1px',
         transition: 'font-size 800ms, opacity 800ms',
     };
@@ -101,7 +101,13 @@ export function Headings(props: {
                         key={k.key}
                         style={{ ...props, position: 'absolute', width }}
                     >
-                        <Text>{item.description}</Text>
+                        <Text sx={{ 
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis',
+                            display: '-webkit-box',
+                            '-webkit-line-clamp': '2' as any,
+                            '-webkit-box-orient': 'vertical' as any,
+                        }}>{item.description}</Text>
                     </animated.div>
                 ))}
 

@@ -7,18 +7,15 @@ const Controls = (props: { onNext?: () => void; onPrev?: () => void }) => (
         sx={{
             color: 'white',
             fontSize: 32,
-            position: 'absolute',
-            bottom: 0,
-            left: 25,
         }}
     >
         <Flex
             sx={{
                 justifyContent: 'center',
                 alignItems: 'center',
-                width: 80,
-                height: 80,
-                borderRadius: 80,
+                width: '3.5vw',
+                height: '3.5vw',
+                borderRadius: '4vw',
                 backgroundColor: 'rgba(255, 255, 255, 0.3)',
                 mr: 18,
                 cursor: 'pointer',
@@ -31,9 +28,9 @@ const Controls = (props: { onNext?: () => void; onPrev?: () => void }) => (
             sx={{
                 justifyContent: 'center',
                 alignItems: 'center',
-                width: 80,
-                height: 80,
-                borderRadius: 80,
+                width: '3.5vw',
+                height: '3.5vw',
+                borderRadius: '4vw',
                 backgroundColor: 'rgba(255, 255, 255, 0.3)',
                 cursor: 'pointer',
             }}
@@ -108,6 +105,8 @@ function useDelayedState<T>(value: T, delay: number) {
     return [state];
 }
 
+const IMAGE_RATIO = 401 / 569;
+
 const Card = ({
     image,
     w,
@@ -151,7 +150,7 @@ const Card = ({
     return (
         <Box sx={{}}>
             <AspectRatio
-                ratio={401 / 569}
+                ratio={IMAGE_RATIO}
                 sx={{
                     transition: `transform ${duration}ms`,
                     transformStyle: 'preserve-3d',
@@ -173,7 +172,7 @@ const Card = ({
                     >
                         <AspectImage
                             src={item}
-                            ratio={401 / 569}
+                            ratio={IMAGE_RATIO}
                             sx={{
                                 objectFit: 'cover',
                                 width: '100%',
@@ -223,13 +222,16 @@ const CardTitle = ({
             };
             trail: number;
         }
-    >({title: delayedTitle, rate: delayedRate}, {
-        keys: (item: any) => item.title,
-        from: { opacity: 0 },
-        enter: { opacity: 1 },
-        leave: { opacity: 0 },
-        config: { tension: 220, friction: 120, duration },
-    });
+    >(
+        { title: delayedTitle, rate: delayedRate },
+        {
+            keys: (item: any) => item.title,
+            from: { opacity: 0 },
+            enter: { opacity: 1 },
+            leave: { opacity: 0 },
+            config: { tension: 220, friction: 120, duration },
+        }
+    );
     return (
         <Box sx={{ height: 75 }}>
             {titleTransition((props, item, k) => (
@@ -286,7 +288,14 @@ export function CardList(props: {
         setCurrentIdx(0);
     }, [props.list]);
     return (
-        <Box sx={{ width, overflow: 'hidden', position: 'relative' }}>
+        <Flex
+            sx={{
+                width,
+                overflow: 'hidden',
+                position: 'relative',
+                alignItems: 'center',
+            }}
+        >
             <Flex
                 sx={{
                     justifyContent: 'flex-start',
@@ -318,7 +327,7 @@ export function CardList(props: {
                             <Card
                                 delay={150 * idx}
                                 image={item.image}
-                                w={`calc(${width} / ${isBig ? 2.5 : 2.8})`}
+                                w={`calc((${width} / ${isBig ? 2.5 : 2.8})`}
                             />
                         </Box>
                     );
@@ -355,6 +364,6 @@ export function CardList(props: {
                     total={props.list.length}
                 />
             </Flex>
-        </Box>
+        </Flex>
     );
 }

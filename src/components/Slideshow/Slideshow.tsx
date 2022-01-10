@@ -23,8 +23,8 @@ export const Slideshow = (props: {
     currentIdx: number;
 }) => {
     const { duration = 300 } = props;
-    const previousIdx = usePrevious(props.currentIdx);
     const [currentIdx, setCurrentIdx] = useState(props.currentIdx);
+    const previousIdx = usePrevious(props.currentIdx);
 
     const from = props.slides[previousIdx ?? currentIdx].image;
     const to = props.slides[currentIdx].image;
