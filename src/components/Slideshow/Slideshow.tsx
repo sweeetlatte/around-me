@@ -24,14 +24,10 @@ export const Slideshow = (props: {
 }) => {
     const { duration = 300 } = props;
     const previousIdx = usePrevious(props.currentIdx);
-    const to = props.slides[props.currentIdx].image;
+    const [currentIdx, setCurrentIdx] = useState(props.currentIdx);
 
-    // "a && b" <=> if (a) b;
-    // Vế trước: previousIdx !== null đúng thì mới thực hiện vế sau: gán props.slides[previousIdx].image cho from
-    // Nếu previousIdx !== null => gán props.slides[previousIdx].image cho from
-    // Nếu previousIdx == null => from = null
-    const from =
-        (previousIdx !== null && props.slides[previousIdx].image) || null;
+    const from = props.slides[previousIdx ?? currentIdx].image;
+    const to = props.slides[currentIdx].image;
 
     // 9, 7, 5
     const transition = GLTransitions[5];
@@ -41,6 +37,7 @@ export const Slideshow = (props: {
     // Mỗi lần thay đổi currentIdx thì reset lại progress
     useEffect(() => {
         setProgress(0);
+        setCurrentIdx(props.currentIdx);
     }, [props.currentIdx]);
     useEffect(() => {
         if (progress < 1) {
@@ -48,22 +45,31 @@ export const Slideshow = (props: {
                 setProgress(progress + INTERVAL / duration);
             }, INTERVAL);
         }
+        // else {
+        //     setDoneIdx(props.currentIdx);
+        // }
     }, [progress]);
 
-    const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-    const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+    const vw = Math.max(
+        document.documentElement.clientWidth || 0,
+        window.innerWidth || 0
+    );
+    const vh = Math.max(
+        document.documentElement.clientHeight || 0,
+        window.innerHeight || 0
+    );
 
     return (
         <Surface width={vw} height={vh}>
-            {progress < 1 && from ? (
+            {progress > 0 ? (
                 <GLTransition
-                    from={<GLImage source={from} resizeMode="cover"/>}
+                    from={<GLImage source={from} resizeMode="cover" />}
                     to={<GLImage source={to} resizeMode="cover" />}
                     progress={progress}
                     transition={transition}
                 />
             ) : (
-                <GLImage source={to} resizeMode="cover" />
+                <GLImage source={from} resizeMode="cover" />
             )}
         </Surface>
     );
