@@ -4,6 +4,7 @@ import GLTransitions from 'gl-transitions';
 import { Surface } from 'gl-react-dom';
 import GLTransition from 'react-gl-transition';
 import GLImage from 'gl-react-image';
+import { useDelayedState } from '../../hooks/delayed-state';
 
 function usePrevious<T>(value: T) {
     const [temp, setTemp] = useState<T | null>(null);
@@ -17,7 +18,8 @@ function usePrevious<T>(value: T) {
     return previous;
 }
 
-const newTransition = {glsl: `
+const newTransition = {
+    glsl: `
 // Author: Fernando Kuteken
 // License: MIT
 
@@ -72,39 +74,48 @@ vec4 transition (vec2 uv) {
     return getToColor(mirrorRepeat(rotated(uv, center2, t)) + rand(uv) / 10. * (1. - t));
   }
 }
-`, name: 'transition'};
+`,
+    name: 'transition',
+};
 
 export const Slideshow = (props: {
     slides: { image: string }[];
     duration?: number;
     currentIdx: number;
+    delay?: number;
 }) => {
-    const { duration = 300 } = props;
-    const [currentIdx, setCurrentIdx] = useState(props.currentIdx);
-    const previousIdx = usePrevious(props.currentIdx);
+    const { duration = 2050, delay = 100 } = props;
+
+    const [delayedCurrentIdx] = useDelayedState(props.currentIdx, delay);
+
+    const [currentIdx, setCurrentIdx] = useState(
+        delayedCurrentIdx ?? props.currentIdx
+    );
+    const previousIdx = usePrevious(currentIdx);
 
     const from = props.slides[previousIdx ?? currentIdx].image;
     const to = props.slides[currentIdx].image;
 
-    // 9, 7, 5
-    const transition = GLTransitions[5];
     const [progress, setProgress] = useState(0);
     const INTERVAL = 1000 / 60;
 
     // Mỗi lần thay đổi currentIdx thì reset lại progress
     useEffect(() => {
-        setProgress(0);
-        setCurrentIdx(props.currentIdx);
-    }, [props.currentIdx]);
+        if (
+            progress >= 1 &&
+            delayedCurrentIdx !== currentIdx &&
+            delayedCurrentIdx !== null
+        ) {
+            setProgress(0);
+            setCurrentIdx(delayedCurrentIdx);
+        }
+    }, [delayedCurrentIdx, progress < 1]);
     useEffect(() => {
         if (progress < 1) {
             setTimeout(() => {
                 setProgress(progress + INTERVAL / duration);
             }, INTERVAL);
         }
-        // else {
-        //     setDoneIdx(props.currentIdx);
-        // }
     }, [progress]);
 
     const vw = Math.max(
@@ -118,7 +129,7 @@ export const Slideshow = (props: {
 
     return (
         <Surface width={vw} height={vh}>
-            {progress > 0 ? (
+            {progress > 0 && from !== to ? (
                 <GLTransition
                     from={<GLImage source={from} resizeMode="cover" />}
                     to={<GLImage source={to} resizeMode="cover" />}
