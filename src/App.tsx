@@ -15,22 +15,22 @@ const data = [
         image: '/images/canada-bg.jpg',
         item: [
             {
-                title: '11',
+                title: 'Vancouver',
                 rate: 4,
                 image: '/images/canada-4.jpg',
             },
             {
-                title: '11',
+                title: 'Toronto',
                 rate: 4,
                 image: '/images/canada-1.jpg',
             },
             {
-                title: '12',
+                title: 'Takkakaw Falls, Yoho National Park',
                 rate: 4,
                 image: '/images/canada-2.jpg',
             },
             {
-                title: '14',
+                title: 'Tobermory',
                 rate: 4,
                 image: '/images/canada-3.jpg',
             },
