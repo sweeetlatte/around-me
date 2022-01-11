@@ -25,7 +25,7 @@ const data = [
                 image: '/images/canada-1.jpg',
             },
             {
-                title: 'Takkakaw Falls, Yoho National Park',
+                title: 'Takkakaw Falls',
                 rate: 4,
                 image: '/images/canada-2.jpg',
             },
