@@ -72,13 +72,7 @@ export function Headings(props: {
         leave: { opacity: 0 },
         config: { tension: 220, friction: 120, duration: 500 },
     });
-    const fadingButtonPropsTransition = useTransition(data[currentIdx], {
-        keys: (item) => item.title,
-        from: { opacity: 0 },
-        enter: { opacity: 1 },
-        leave: { opacity: 0 },
-        config: { tension: 220, friction: 120, duration: 500, delay: 100 },
-    });
+
     return (
         <Box
             sx={{

@@ -9,7 +9,7 @@ import { Slideshow } from './components/Slideshow/Slideshow';
 const data = [
     {
         title: 'Canada',
-        buttonColor: '#c8d4db',
+        buttonColor: '#FFFFFF',
         description:
             'Canada is a country in North America that extends from the Atlantic Ocean in the east, to the Pacific Ocean in the west.',
         image: '/images/canada-bg.jpg',
@@ -38,7 +38,7 @@ const data = [
     },
     {
         title: 'Sweden',
-        buttonColor: '#dcb3c0',
+        buttonColor: '#FFFFFF',
         description:
             'Sweden is a country located in Northern Europe bordering the Baltic Sea, Gulf of Bothnia, Kattegat, and Skagerrak.',
         image: '/images/sweden-bg.jpg',
@@ -67,7 +67,7 @@ const data = [
     },
     {
         title: 'Norway',
-        buttonColor: '#88b2d8',
+        buttonColor: '#FFFFFF',
         description:
             'Norway is a country in Northern Europe occupying the western portion of the Scandinavian Peninsula.',
         image: '/images/norway-bg.jpg',
@@ -96,7 +96,7 @@ const data = [
     },
     {
         title: 'Switzerland',
-        buttonColor: '#dcceb6',
+        buttonColor: '#FFFFFF',
         description:
             'Switzerland is a landlocked country in Central Europe. Neighboring countries include Austria, France, Italy.',
         image: '/images/swit-bg.jpg',
@@ -125,7 +125,7 @@ const data = [
     },
     {
         title: 'Finland',
-        buttonColor: '#8c9cac',
+        buttonColor: '#FFFFFF',
         description:
             'Finland is a country located in Northern Europe bordering the Baltic Sea, Gulf of Bothnia, and the Gulf of Finland.',
         image: '/images/fin-bg.jpg',
@@ -154,7 +154,7 @@ const data = [
     },
     {
         title: 'Germany',
-        buttonColor: '#c5d3db',
+        buttonColor: '#FFFFFF',
         description:
             'Germany is a country located in the heart of Western Europe. It is bordered by Denmark, Poland, Czechia, Austria, Switzerland.',
         image: '/images/ger-bg.jpg',
