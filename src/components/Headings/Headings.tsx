@@ -67,10 +67,17 @@ export function Headings(props: {
     const { data, currentIdx, width = '50vw', height = '80vh' } = props;
     const fadingTextPropsTransition = useTransition(data[currentIdx], {
         keys: (item) => item.title,
+        from: { opacity: -2 },
+        enter: { opacity: 1 },
+        leave: { opacity: -2 },
+        config: { tension: 220, friction: 120, duration: 2000 },
+    });
+    const fadingButtonPropsTransition = useTransition(data[currentIdx], {
+        keys: (item) => item.title,
         from: { opacity: 0 },
         enter: { opacity: 1 },
         leave: { opacity: 0 },
-        config: { tension: 220, friction: 120, duration: 500 },
+        config: { tension: 220, friction: 120, duration: 500, delay: 100 },
     });
 
     return (
@@ -106,16 +113,6 @@ export function Headings(props: {
                         >
                             {item.description}
                         </Text>
-                    </animated.div>
-                ))}
-
-                {fadingTextPropsTransition((props, item, k) => (
-                    <animated.div
-                        style={{
-                            position: 'absolute',
-                            top: 70,
-                        }}
-                    >
                         <Button
                             sx={{
                                 color: 'black',
@@ -124,7 +121,6 @@ export function Headings(props: {
                                 padding: '15px 30px',
                                 display: 'block',
                                 mt: 10,
-                                // opacity: `calc(${props.opacity.get()} + 1)` }}
                             }}
                         >
                             Explore
