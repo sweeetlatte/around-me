@@ -189,7 +189,7 @@ function App() {
     return (
         <Flex
             sx={{
-                justifyContent: 'space-between',
+                justifyContent: 'space-evenly',
                 flexDirection: 'column',
                 backgroundColor: '#333',
                 minHeight: '100vh',
@@ -208,7 +208,7 @@ function App() {
                 <Slideshow slides={data} currentIdx={currentIdx} />
             </Box>
             <Flex />
-            <Flex sx={{ justifyContent: 'space-between', mt: '2vw' }}>
+            <Flex sx={{ justifyContent: 'space-between' }}>
                 <Box sx={{ ml: '2vw' }}>
                     <Indicators
                         total={data.length}

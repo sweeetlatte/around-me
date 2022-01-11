@@ -68,7 +68,6 @@ export const AspectRatio = ({
     <Box
         sx={{
             position: 'relative',
-            //   overflow: 'hidden',
         }}
     >
         <Box
@@ -92,8 +91,6 @@ export const AspectRatio = ({
         </Box>
     </Box>
 );
-
-
 
 const IMAGE_RATIO = 401 / 569;
 

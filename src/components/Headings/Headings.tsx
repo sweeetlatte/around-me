@@ -101,21 +101,27 @@ export function Headings(props: {
                         key={k.key}
                         style={{ ...props, position: 'absolute', width }}
                     >
-                        <Text sx={{ 
-                            overflow: 'hidden',
-                            textOverflow: 'ellipsis',
-                            display: '-webkit-box',
-                            '-webkit-line-clamp': '2' as any,
-                            '-webkit-box-orient': 'vertical' as any,
-                        }}>{item.description}</Text>
+                        <Text
+                            sx={{
+                                overflow: 'hidden',
+                                textOverflow: 'ellipsis',
+                                display: '-webkit-box',
+                                '-webkit-line-clamp': '2' as any,
+                                '-webkit-box-orient': 'vertical' as any,
+                            }}
+                        >
+                            {item.description}
+                        </Text>
                     </animated.div>
                 ))}
 
                 {fadingTextPropsTransition((props, item, k) => (
-                    <animated.div style={{
-                        position: 'absolute',
-                        top: 70
-                    }} >
+                    <animated.div
+                        style={{
+                            position: 'absolute',
+                            top: 70,
+                        }}
+                    >
                         <Button
                             sx={{
                                 color: 'black',
