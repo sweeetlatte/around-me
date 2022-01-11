@@ -23,7 +23,7 @@ const Controls = (props: { onNext?: () => void; onPrev?: () => void }) => (
             }}
             onClick={props.onPrev}
         >
-            ‹
+            ‹ 
         </Flex>
         <Flex
             sx={{
@@ -47,11 +47,11 @@ const Pagination = (props: { current: number; total: number }) => (
         <Text>{props.current.toString().padStart(2, '0')}</Text>
         <Box
             sx={{
-                width: 25,
+                width: 42,
                 height: 2,
                 backgroundColor: 'white',
                 opacity: 0.5,
-                mx: 25,
+                mx: 18,
             }}
         />
         <Text sx={{ opacity: 0.5 }}>

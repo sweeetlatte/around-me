@@ -12,7 +12,7 @@ const data = [
         buttonColor: '#FFFFFF',
         description:
             'Canada is a country in North America that extends from the Atlantic Ocean in the east, to the Pacific Ocean in the west.',
-        image: '/images/canada-bg.jpg',
+        image: '/images/canada-bg-compressed.jpg',
         item: [
             {
                 title: 'Vancouver',
