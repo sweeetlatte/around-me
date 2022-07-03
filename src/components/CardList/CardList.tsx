@@ -23,7 +23,7 @@ const Controls = (props: { onNext?: () => void; onPrev?: () => void }) => (
             }}
             onClick={props.onPrev}
         >
-            ‹ 
+            ‹
         </Flex>
         <Flex
             sx={{
@@ -239,7 +239,7 @@ const CardTitle = ({
                     </Text>
                     <Flex>
                         {/* "_": skip the unwanted param */}
-                        {Array.from({ length: 5 }).map((_, idx) => (
+                        {Array.from({ length: 4 }).map((_, idx) => (
                             <Box
                                 sx={{
                                     width: dotSize,

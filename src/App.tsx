@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-import './App.css';
+import { useState } from 'react';
 import { Box, Flex } from 'theme-ui';
+
+import './App.css';
+
 import { Indicators } from './components/Indicators/Indicators';
 import { Headings } from './components/Headings/Headings';
 import { CardList } from './components/CardList/CardList';
@@ -16,17 +18,17 @@ const data = [
         item: [
             {
                 title: 'Vancouver',
-                rate: 4,
+                rate: 1,
                 image: '/images/canada-4.jpg',
             },
             {
                 title: 'Toronto',
-                rate: 4,
+                rate: 2,
                 image: '/images/canada-1.jpg',
             },
             {
-                title: 'Takkakaw Falls',
-                rate: 4,
+                title: 'Takakkaw',
+                rate: 3,
                 image: '/images/canada-2.jpg',
             },
             {
@@ -44,22 +46,22 @@ const data = [
         image: '/images/sweden-bg.jpg',
         item: [
             {
-                title: '21',
-                rate: 4,
+                title: 'Stockholm',
+                rate: 1,
                 image: '/images/sweden-3.jpg',
             },
             {
-                title: '22',
-                rate: 4,
+                title: 'Vittangi',
+                rate: 2,
                 image: '/images/sweden-4.jpg',
             },
             {
-                title: '23',
-                rate: 4,
+                title: 'Malmö',
+                rate: 3,
                 image: '/images/sweden-2.jpg',
             },
             {
-                title: '24',
+                title: 'Globen',
                 rate: 4,
                 image: '/images/sweden-1.jpg',
             },
@@ -73,53 +75,53 @@ const data = [
         image: '/images/norway-bg.jpg',
         item: [
             {
-                title: '31',
-                rate: 4,
+                title: 'Hovden',
+                rate: 1,
                 image: '/images/norway-1.jpg',
             },
             {
-                title: '33',
-                rate: 4,
+                title: 'Vossestrand',
+                rate: 2,
                 image: '/images/norway-2.jpg',
             },
             {
-                title: '33',
-                rate: 4,
+                title: 'Bergen',
+                rate: 3,
                 image: '/images/norway-3.jpg',
             },
             {
-                title: '34',
+                title: 'Svolvær',
                 rate: 4,
                 image: '/images/norway-4.jpg',
             },
         ],
     },
     {
-        title: 'Switzerland',
+        title: 'Turkey',
         buttonColor: '#FFFFFF',
         description:
-            'Switzerland is a landlocked country in Central Europe. Neighboring countries include Austria, France, Italy.',
-        image: '/images/swit-bg.jpg',
+            'Located mainly on the Anatolian Peninsula in Western Asia, with a small portion on the Balkan Peninsula in Southeast',
+        image: '/images/tur-bg.jpg',
         item: [
             {
-                title: '41',
-                rate: 4,
-                image: '/images/swit-1.jpg',
+                title: 'Melikgazi',
+                rate: 1,
+                image: '/images/tur-4.jpg',
             },
             {
-                title: '44',
-                rate: 4,
-                image: '/images/swit-2.jpg',
+                title: 'Istanbul',
+                rate: 2,
+                image: '/images/tur-2.jpg',
             },
             {
-                title: '43',
-                rate: 4,
-                image: '/images/swit-3.jpg',
+                title: 'Göreme',
+                rate: 3,
+                image: '/images/tur-3.jpg',
             },
             {
-                title: '44',
+                title: 'Sultanahmet',
                 rate: 4,
-                image: '/images/swit-4.jpg',
+                image: '/images/tur-1.jpg',
             },
         ],
     },
@@ -131,22 +133,22 @@ const data = [
         image: '/images/fin-bg.jpg',
         item: [
             {
-                title: '51',
-                rate: 4,
+                title: 'Tavastia Proper',
+                rate: 1,
                 image: '/images/fin-1.jpg',
             },
             {
-                title: '55',
-                rate: 4,
+                title: 'Nuuksio',
+                rate: 2,
                 image: '/images/fin-2.jpg',
             },
             {
-                title: '53',
-                rate: 4,
+                title: 'Uusimaa',
+                rate: 3,
                 image: '/images/fin-3.jpg',
             },
             {
-                title: '54',
+                title: 'Tampere',
                 rate: 4,
                 image: '/images/fin-4.jpg',
             },
@@ -160,22 +162,22 @@ const data = [
         image: '/images/ger-bg.jpg',
         item: [
             {
-                title: '61',
-                rate: 4,
+                title: 'Bayern',
+                rate: 1,
                 image: '/images/ger-1.jpg',
             },
             {
-                title: '66',
-                rate: 4,
+                title: 'Tauber',
+                rate: 2,
                 image: '/images/ger-2.jpg',
             },
             {
-                title: '63',
-                rate: 4,
+                title: 'Heidelberg',
+                rate: 3,
                 image: '/images/ger-3.jpg',
             },
             {
-                title: '64',
+                title: 'Hamburg',
                 rate: 4,
                 image: '/images/ger-4.jpg',
             },
