@@ -26,6 +26,16 @@ export const Default = () => {
         },
     ];
 
+    (() => {
+        setInterval(() => {
+            if (currentIdx < 3) {
+                setCurrentIdx(currentIdx + 1);
+            } else if (currentIdx >= 3) {
+                setCurrentIdx(0);
+            }
+        }, 2150);
+    })();
+
     return (
         <div
             style={{ backgroundColor: '#333', width: '100vw', height: '100vh' }}
